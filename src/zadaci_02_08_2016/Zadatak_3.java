@@ -14,6 +14,7 @@ public class Zadatak_3 {
 
 		while (input.hasNext()) { //prolazak kroz rijeci u text fajlu
 			words++; //za svaku rijec se brojac povecava za jedan
+			@SuppressWarnings("unused")
 			String temp = input.next(); //ciscenje/sklanjanje/smjestanje trenutne rijeci, da bi smo presli na sledecu, tj ucitavamo ju u "temp" varijablu
 		}
 		input.close(); //zatvaranje citaca/skenera
