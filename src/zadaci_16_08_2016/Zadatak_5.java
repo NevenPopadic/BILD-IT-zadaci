@@ -4,31 +4,32 @@ import java.util.Scanner;
 
 public class Zadatak_5 {
 	/*
-	 * Napisati metodu koja ispisuje n x n matricu koristeæi se sljedeæim
-	 * headerom: public static void printMatrix(int n). Svaki element u matrici
-	 * je ili 0 ili 1, nasumièno generisana. Napisati test program koji pita
-	 * korisnika da unese broj n te mu ispiše n x n matricu u konzoli.
+	 * Napisati program koji pita korisnika da unese cijeli broj te ispisuje
+	 * piramidu svih brojeva do tog broja. (Na primjer, ukoliko korisnik unese 7
+	 * vrh piramide je broj 1, red ispod vrha piramide je 2 1 2, red ispod je 3
+	 * 2 1 2 3, red ispod 4 3 2 1 2 3 4 itd.
 	 */
-
-	public static void printMatrix(int n) {
-		// petlja za prolazak kroz redove
-		for (int i = 0; i < n; i++) {
-			// petlja za prolazak kroz brojeve u redu
-			for (int y = 0; y < n; y++) {
-				// ispisivanje 0 ili 1 pomocu Math.random
-				System.out.print((int) (Math.round(Math.random() * 1)) + " ");
-			}
-			// prelazak u novi red
-			System.out.println();
-		}
-	}
-
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		System.out.println("Unesite n: ");
-		// pozivanje metode prilikom unosa od strane korisnika
-		printMatrix(input.nextInt());
+		System.out.println("Unesite cijeli broj:");
+		int num = input.nextInt();
 		input.close();
+		// petlja za prolazak kroz redove
+		for (int i = 1; i <= num; i++) {
+			// petlja za ubacivanje razmaka prije svakog broja
+			for (int y = 1; y <= num - i; y++) {
+				System.out.print("  ");
+			}
+			// petlja za upis brojeva do 1
+			for (int x = i; x > 0; x--) {
+				System.out.print(x + " ");
+			}
+			// petlja za upis brojeva od 1 pa do trenutnog "i" broja
+			for (int z = 1; z < i; z++) {
+				System.out.print(z + 1 + " ");
+			}
+			System.out.println();
+		}
 	}
 
 }

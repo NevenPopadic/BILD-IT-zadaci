@@ -1,6 +1,5 @@
 package zadaci_11_08_2016;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Zadatak_5 {
@@ -29,7 +28,8 @@ public class Zadatak_5 {
 			if (n > 0) {
 				countP++;
 			}
-			// u slucaju bilo kog broja razlicitog on 0, @counter se povecava za 1
+			// u slucaju bilo kog broja razlicitog on 0, @counter se povecava za
+			// 1
 			if (n != 0) {
 				counter++;
 			}
