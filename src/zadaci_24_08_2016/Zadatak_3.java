@@ -10,7 +10,10 @@ public class Zadatak_3 {
 	// evo pa testiraj...
 	public static void main(String[] args) {
 		// pocetna Int vrijednost
-		BigInteger soBig = new BigInteger(Long.MAX_VALUE + "");
+		 BigInteger soBig = new BigInteger(Long.MAX_VALUE + "");
+		// predlozio Dejan, jos sporije xD
+		//BigInteger soBig = new BigInteger(79846462100000L + "");
+
 		int counter = 0;
 		// ide petlja i ode, radi do djurdjeva dana, cooler vristi
 		do {

@@ -28,7 +28,7 @@ public class Zadatak_1 {
 				counter++;
 				System.out
 						.println(counter
-								+ ". broj (sa 50 decimala) koji je djeljiv sa 2 i 3 je: "
+								+ ". broj (sa 50 decimala) koji je djeljiv sa 2 ili 3 je: "
 								+ opet50);
 
 			}
