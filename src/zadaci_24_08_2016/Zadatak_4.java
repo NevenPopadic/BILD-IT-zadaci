@@ -8,8 +8,10 @@ public class Zadatak_4 {
 	 * written in the form 2p - 1 for some positive integer p. Write a program
 	 * that finds all Mersenne primes with p … 100 and displays the output as
 	 * shown below. (Hint: You have to use BigInteger to store the number,
-	 * because it is too big to be stored in long. Your program may take SEVERAL
-	 * HOURS to run.)
+	 * because it is too big to be stored in long. Your program may take 
+	 * SEVERAL
+	 * HOURS
+	 *  to run.)
 	 */
 
 	public static void main(String[] args) {
