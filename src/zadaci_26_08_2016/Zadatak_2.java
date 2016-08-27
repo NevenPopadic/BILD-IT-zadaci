@@ -23,23 +23,37 @@ public class Zadatak_2 {
 	public static void main(String[] args) {
 		Person tomica = new Person("Tomica Guzina", "Split", "000/321-666",
 				"tomica123@cyka.com");
-		System.out.println("Person: " + tomica.toString());
+		System.out.println(tomica.toString());
+
 		Student stipe = new Student("Stipe Stipic", "Dalmacija", "111/222-333",
 				"stipko@lipanasa.hr");
 		stipe.setStatus(4);
 		System.out.println(stipe.toString());
-		
+
+		Employee nikola = new Employee("Nikola Tomic", "Negdje", "564/987-321",
+				"nemampojma@koji.404", "Bild", 250);
+		System.out.println(nikola.toString());
+
+		Faculty john = new Faculty("Test Test", "Nowhere", "000/000-000",
+				"outof@ideas.0", "Doboj", 10, 20, "SilverStar");
+		System.out.println(john.toString());
+
+		Staff baws = new Staff("Jane Doe", "Wonderland", "invalid",
+				"non-existant", "RabbitHole", 0.5, "crazy");
+		System.out.println(baws.toString());
 	}
 }
 
+// klasa za osobu sa @name; @adress; @number; @email; varijablama
 class Person {
 	private String name;
 	private String adress;
 	private String number;
 	private String email;
 
+	// konstruktori
 	public Person() {
-		
+
 	}
 
 	public Person(String name, String adress, String number, String email) {
@@ -81,21 +95,24 @@ class Person {
 		this.email = email;
 	}
 
+	// to string metoda koja olaksava ispis
 	@Override
 	public String toString() {
-		return "Name: " + name + "\nEmail: " + email + "\nPhone: " + number
-				+ "\nAdress: " + adress;
+		return "Name: " + name + "\tEmail: " + email + "\tPhone: " + number
+				+ "\tAdress: " + adress;
 	}
 
 }
 
 class Student extends Person {
+	// finalne varijable za smjestanje ranka studenta
 	private static final String STATUS1 = "Freshman";
 	private static final String STATUS2 = "Sophomore";
 	private static final String STATUS3 = "Junior";
 	private static final String STATUS4 = "Senior";
 	private String status;
 
+	// konstruktori
 	public Student() {
 
 	}
@@ -106,6 +123,7 @@ class Student extends Person {
 	}
 
 	public void setStatus(int status) {
+		// rank biramo pomocu switch metode
 		switch (status) {
 		case 1:
 			this.status = STATUS1;
@@ -123,28 +141,31 @@ class Student extends Person {
 
 	}
 
+	// olaksava ispis
 	@Override
 	public String toString() {
-		return "Student: " + getName() + " is " + status;
+		return super.toString() + "\tStudent: " + status;
 	}
 
 }
 
 class Employee extends Person {
+	// varijable @office; @salary; @dateHired
 	private String office;
 	private double salary;
-	private Date dateHired = new Date();
+	private Date dateHired;
 
+	// konstruktori
 	public Employee() {
 
 	}
 
 	public Employee(String name, String adress, String number, String email,
-			String office, double salary, Date dateHired) {
+			String office, double salary) {
 		super(name, adress, number, email);
 		this.office = office;
 		this.salary = salary;
-		this.dateHired = dateHired;
+		this.dateHired = new java.util.Date();
 	}
 
 	public String getOffice() {
@@ -163,26 +184,28 @@ class Employee extends Person {
 		this.salary = salary;
 	}
 
+	// olaksava pri ispitu
 	@Override
 	public String toString() {
-		return "Office: " + this.office + "\nSalary: " + this.salary
-				+ "\nDate hired: " + this.dateHired.toString();
+		return super.toString() + "\tOffice: " + this.office + "\tSalary: "
+				+ this.salary + "KM\tDate hired: " + this.dateHired.toString();
 	}
 
 }
 
 class Faculty extends Employee {
+	// varijable @officeHours; @rank;
 	private int officeHours;
 	private String rank;
 
+	// konstruktori
 	public Faculty() {
 
 	}
 
 	public Faculty(String name, String adress, String number, String email,
-			String office, double salary, Date dateHired, int officeHours,
-			String rank) {
-		super(name, adress, number, email, office, salary, dateHired);
+			String office, double salary, int officeHours, String rank) {
+		super(name, adress, number, email, office, salary);
 		this.officeHours = officeHours;
 		this.rank = rank;
 	}
@@ -203,23 +226,27 @@ class Faculty extends Employee {
 		this.rank = rank;
 	}
 
+	// olaksava ispis
 	@Override
 	public String toString() {
-		return "Office hours: " + this.officeHours + "\nRank: " + this.rank;
+		return super.toString() + "\tOffice hours: " + this.officeHours
+				+ "\tRank: " + this.rank;
 	}
 
 }
 
 class Staff extends Employee {
+	// varijabla @title
 	private String title;
 
+	// konstruktori
 	public Staff() {
 
 	}
 
 	public Staff(String name, String adress, String number, String email,
-			String office, double salary, Date dateHired, String title) {
-		super(name, adress, number, email, office, salary, dateHired);
+			String office, double salary, String title) {
+		super(name, adress, number, email, office, salary);
 		this.title = title;
 	}
 
@@ -231,8 +258,9 @@ class Staff extends Employee {
 		this.title = title;
 	}
 
+	// olaksava ispis
 	@Override
 	public String toString() {
-		return "Title: " + this.title;
+		return super.toString() + "\tTitle: " + this.title;
 	}
 }
