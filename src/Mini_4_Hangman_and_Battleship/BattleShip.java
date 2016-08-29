@@ -12,6 +12,7 @@ public class BattleShip {
 		Scanner input = new Scanner(System.in);
 		int[][] table = table();
 		char[] temp = { 'A', '2' };
+		boolean check = true;
 
 		String userGuess;
 		int numOfGuess = 0;
@@ -24,10 +25,12 @@ public class BattleShip {
 
 			setLocation();
 
-			printTable(table, temp, 0);
+			printTable(table, temp, 3);
 			while (!ship.isEmpty()) {
 				String result = "miss";
+
 				numOfGuess++;
+
 				System.out.println("Enter a guess: ");
 
 				userGuess = input.nextLine().toUpperCase();
@@ -41,17 +44,27 @@ public class BattleShip {
 				for (int i = 0; i < ship.size(); i++) {
 					result = ship.get(i).checkGuess(userGuess);
 					if (result.equals("kill")) {
-						result = ("you sun " + ship.get(i).getName());
+						result = ("you sunk " + ship.get(i).getName());
 						printTable(table, temp, 1);
 						ship.remove(i);
+						check = true;
 						break;
-					} else if (result.equals("hit"))
+					} else if (result.equals("hit")) {
 						printTable(table, temp, 1);
-					break;
+						check = true;
+						break;
+
+					}
 
 				}
+				// if (!check) {
+				System.out.println("bug");
 				printTable(table, temp, 2);
 				System.out.println(result);
+				// }
+
+				temp[0] = ' ';
+				temp[1] = ' ';
 
 			}
 			if (numOfGuess == ship.size())
@@ -138,6 +151,7 @@ public class BattleShip {
 						}
 					}
 					loc.add(location);
+					System.out.println(location);
 					locations.add(location);
 				}
 				ship.get(i).setLocation(locations);
